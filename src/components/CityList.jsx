@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './CityList.module.css'
 import Spinner from './Spinner';
 
@@ -19,14 +20,16 @@ function CityList({cities, isLoading}) {
 }
 
 function CityItem({city}){
-    const {cityName, date, emoji} = city
+    const {cityName, date, emoji, id} = city
     console.log(city)
     return(
-    <li className={styles.cityItem}>
+    <li>
+      <Link className={styles.cityItem} to={`${id}`}>
       <span className={styles.emoji}>{emoji}</span> 
       <h2 className={styles.name}>{cityName}</h2>
       <time className={styles.date}>{formatDate(date)}</time>
       <button className={styles.deleteBtn}>&times;</button>
+      </Link>
     </li>
     )
 }
