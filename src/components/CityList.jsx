@@ -20,11 +20,11 @@ function CityList({cities, isLoading}) {
 }
 
 function CityItem({city}){
-    const {cityName, date, emoji, id} = city
-    console.log(city)
+    const {cityName, date, emoji, id, position} = city
+    
     return(
     <li>
-      <Link className={styles.cityItem} to={`${id}`}>
+      <Link className={styles.cityItem} to={`${id}?lat=${position.lat}/lng=${position.lng}`}>
       <span className={styles.emoji}>{emoji}</span> 
       <h2 className={styles.name}>{cityName}</h2>
       <time className={styles.date}>{formatDate(date)}</time>

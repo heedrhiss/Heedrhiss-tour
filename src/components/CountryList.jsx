@@ -12,10 +12,9 @@ function CountryList({cities, isLoading}) {
     , [])
 
     if(isLoading) return <Spinner/>
-
     return (
         <div className={styles.countryList}>
-           {country.map(country=>  <CountryItem  country={country}/>)}
+           {country.map(country=>  <CountryItem  country={country} key={country.country}/>)}
         </div>
     )
 }
