@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './CityList.module.css'
 import Spinner from './Spinner';
+import { useCities } from '../contexts/CitiesContext';
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -10,7 +11,8 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function CityList({cities, isLoading}) {
+function CityList() {
+  const {cities, isLoading} = useCities()
     if(isLoading) return <Spinner/>
     return (
         <div className={styles.cityList}>
@@ -19,7 +21,8 @@ function CityList({cities, isLoading}) {
     )
 }
 
-function CityItem({city}){
+function CityItem(){
+  const {city} = useCities()
     const {cityName, date, emoji, id, position} = city
     
     return(
