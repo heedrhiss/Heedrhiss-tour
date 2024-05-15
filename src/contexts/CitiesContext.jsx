@@ -7,6 +7,7 @@ function CitiesProvider({children}){
 
     const [cities, setCities] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [currentCity, setCurrentCity] = useState({});
     
     useEffect(function (){
       const controller = new AbortController();
@@ -18,7 +19,7 @@ function CitiesProvider({children}){
          const data = await res.json();
          setCities(data)
       }catch{
-        // alert("Error occurred")
+        alert("Error occurred")
         // console.log(Error)
       }finally{
         setIsLoading(false)
@@ -29,10 +30,25 @@ function CitiesProvider({children}){
       return function(){
         controller.abort()
       }
-    },[])
+    },[]);
+
+    async function getCity(id){
+      try{ 
+        setIsLoading(true)
+        const res = await fetch(`${url}cities/${id}`);
+       const data = await res.json();
+       setCurrentCity(data)
+    }catch{
+      alert("Error occurred")
+      // console.log(Error)
+    }finally{
+      setIsLoading(false)
+    }
+    }
+  
 
     return(
-        <CitiesContext.Provider values={{cities, isLoading}}>
+        <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity}}>
             {children}
         </CitiesContext.Provider>
     )
@@ -40,6 +56,7 @@ function CitiesProvider({children}){
 
 function useCities(){
     const context = useContext(CitiesContext);
+    if (context === undefined) throw new Error("The context is being used at the wrong level")
     return context;
 }
 

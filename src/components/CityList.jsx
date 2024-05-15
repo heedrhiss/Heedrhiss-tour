@@ -21,8 +21,8 @@ function CityList() {
     )
 }
 
-function CityItem(){
-  const {city} = useCities()
+function CityItem({city}){
+  // const {cities} = useCities();
     const {cityName, date, emoji, id, position} = city
     
     return(
