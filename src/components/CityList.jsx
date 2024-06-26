@@ -22,12 +22,12 @@ function CityList() {
 }
 
 function CityItem({city}){
-  // const {cities} = useCities();
+  const {currentCity} = useCities();
     const {cityName, date, emoji, id, position} = city
     
     return(
     <li>
-      <Link className={styles.cityItem} to={`${id}?lat=${position.lat}/lng=${position.lng}`}>
+      <Link className={`${styles.cityItem} ${id === currentCity.id ? styles['cityItem--active'] : ""}`} to={`${id}?lat=${position.lat}/lng=${position.lng}`}>
       <span className={styles.emoji}>{emoji}</span> 
       <h2 className={styles.name}>{cityName}</h2>
       <time className={styles.date}>{formatDate(date)}</time>
