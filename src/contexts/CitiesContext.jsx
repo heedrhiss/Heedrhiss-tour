@@ -19,7 +19,7 @@ function CitiesProvider({children}){
          const data = await res.json();
          setCities(data)
       }catch{
-        alert("Error occurred")
+        // alert("Error occurred")
         // console.log(Error)
       }finally{
         setIsLoading(false)
@@ -39,7 +39,7 @@ function CitiesProvider({children}){
        const data = await res.json();
        setCurrentCity(data)
     }catch{
-      alert("Error occurred")
+      // alert("Error occurred")
       // console.log(Error)
     }finally{
       setIsLoading(false)
