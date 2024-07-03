@@ -12,7 +12,8 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityList() {
-  const {cities, isLoading} = useCities()
+  const {cities, isLoading} = useCities();
+  
     if(isLoading) return <Spinner/>
     return (
         <div className={styles.cityList}>
@@ -27,7 +28,7 @@ function CityItem({city}){
     
     return(
     <li>
-      <Link className={`${styles.cityItem} ${id === currentCity.id ? styles['cityItem--active'] : ""}`} to={`${id}?lat=${position.lat}/lng=${position.lng}`}>
+      <Link className={`${styles.cityItem} ${id === currentCity.id ? styles['cityItem--active'] : ""}`} to={`${id}?lat=${position.lat}&lng=${position.lng}`}>
       <span className={styles.emoji}>{emoji}</span> 
       <h2 className={styles.name}>{cityName}</h2>
       <time className={styles.date}>{formatDate(date)}</time>
