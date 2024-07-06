@@ -13,10 +13,10 @@ function Map() {
     const {cities} = useCities()
     const {position: geoPosition, isLoading: geoIsLoading, getPosition} = useGeolocation()
 
+    const [mapPosition, setMapPosition] = useState([40, 0])
     const [searchParams] = useSearchParams()
     const lat = searchParams.get('lat')
     const lng = searchParams.get("lng")
-    const [mapPosition, setMapPosition] = useState([40, 0])
     
     useEffect(function(){
         if (lat && lng) setMapPosition([lat, lng]);
