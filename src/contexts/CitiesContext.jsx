@@ -18,9 +18,9 @@ function CitiesProvider({children}){
           const res = await fetch(`${url}cities`, {signal: controller.signal});
          const data = await res.json();
          setCities(data)
-      }catch{
+      }catch(err){
         // alert("Error occurred")
-        // console.log(Error)
+        // console.error(err);
       }finally{
         setIsLoading(false)
       }
@@ -38,17 +38,51 @@ function CitiesProvider({children}){
         const res = await fetch(`${url}cities/${id}`);
        const data = await res.json();
        setCurrentCity(data)
-    }catch{
+    }catch(err){
       // alert("Error occurred")
-      // console.log(Error)
+      console.error(err);
     }finally{
       setIsLoading(false)
     }
     }
   
+    async function createCity(newCity){
+      try{ 
+        setIsLoading(true)
+        const res = await fetch(`${url}cities`,
+        {method: 'POST', body: JSON.stringify(newCity),
+      headers: {
+        "content-type" : "application/json"
+      }});
+       const data = await res.json()
+       setCities(...cities, data);
+       
+    }catch(err){
+      // alert("Error occurred")
+      console.error(err);
+    }finally{
+      setIsLoading(false)
+    }
+    }
+
+    async function deleteCity(id){
+      try{ 
+        setIsLoading(true)
+        await fetch(`${url}cities/${id}`,  {method: 'DELETE'});
+       setCities(cities => cities.filter(city => city.id != id));
+       
+    }catch(err){
+      // alert("Error occurred")
+      console.error(err);
+    }finally{
+      setIsLoading(false)
+    }
+    }
+    
 
     return(
-        <CitiesContext.Provider value={{cities, isLoading, currentCity, getCity}}>
+        <CitiesContext.Provider value={{cities, isLoading, currentCity,
+        getCity, createCity, deleteCity}}>
             {children}
         </CitiesContext.Provider>
     )

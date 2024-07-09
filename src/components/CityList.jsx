@@ -22,17 +22,22 @@ function CityList() {
     )
 }
 
+
 function CityItem({city}){
-  const {currentCity} = useCities();
+  const {currentCity, deleteCity} = useCities();
     const {cityName, date, emoji, id, position} = city
     
+function handleDelete(e){
+  e.preventDefault()
+  deleteCity(id)
+}
     return(
     <li>
       <Link className={`${styles.cityItem} ${id === currentCity.id ? styles['cityItem--active'] : ""}`} to={`${id}?lat=${position.lat}&lng=${position.lng}`}>
       <span className={styles.emoji}>{emoji}</span> 
       <h2 className={styles.name}>{cityName}</h2>
       <time className={styles.date}>{formatDate(date)}</time>
-      <button className={styles.deleteBtn}>&times;</button>
+      <button className={styles.deleteBtn} onClick={handleDelete}>&times;</button>
       </Link>
     </li>
     )
