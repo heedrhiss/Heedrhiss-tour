@@ -18,12 +18,13 @@ function Map() {
     
     
     useEffect(function(){
-        if (lat && lng) setMapPosition([lat, lng]);
+        if (lat && lng) setMapPosition([lat, lng])
+    },  [lat,lng])
+    
+    useEffect(function(){
         if (geoPosition) setMapPosition(geoPosition);
-    
-    }
-        ,[geoPosition,lat,lng])
-    
+    }, [geoPosition])
+
     return (
     <div className={styles.mapContainer}>
         {!geoPosition && 

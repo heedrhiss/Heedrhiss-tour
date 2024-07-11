@@ -61,39 +61,27 @@
       "id": "98443197"
     },
     {
-      "id": "6ca5",
+      "id": "81b0",
+      "cityName": "la Febro",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-07-11T16:36:06.799Z",
+      "notes": "",
+      "position": {
+        "lat": "41.27780646738183",
+        "lng": "0.9997558593750001"
+      }
+    },
+    {
+      "id": "d658",
       "cityName": "Lagos",
       "country": "Nigeria",
       "emoji": "🇳🇬",
-      "date": "2024-07-09T13:10:15.024Z",
-      "notes": "hello",
+      "date": "2024-07-11T16:47:02.994Z",
+      "notes": "ukr",
       "position": {
-        "lat": "6.424483546180726",
-        "lng": "3.482666015625"
-      }
-    },
-    {
-      "id": "fcef",
-      "cityName": "la Granadella",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-07-09T13:43:50.163Z",
-      "notes": "",
-      "position": {
-        "lat": "41.36031866306708",
-        "lng": "0.6152343750000001"
-      }
-    },
-    {
-      "id": "c01d",
-      "cityName": "Sastago",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-07-09T13:44:31.296Z",
-      "notes": "",
-      "position": {
-        "lat": "41.3850519497068",
-        "lng": "-0.25268554687500006"
+        "lat": "6.446317749457659",
+        "lng": "3.5815429687500004"
       }
     }
   ]
