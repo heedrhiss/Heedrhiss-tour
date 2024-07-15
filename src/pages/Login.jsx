@@ -21,7 +21,7 @@ function handleSubmit(e){
 }
 useEffect(function(){
   if(isAuth) navigate("/app", {replace: true})
-},[isAuth]);
+},[isAuth, navigate]);
 
   return (
     <main className={styles.login}>
