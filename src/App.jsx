@@ -7,7 +7,7 @@ import "./index.css";
 
 // import Homepage from "./pages/Homepage"
 // import Product from "./pages/Product"
-// import PageNotfound from "./pages/PageNotfound"
+// import PageNotFound from "./pages/PageNotFound"
 // import Pricing from "./pages/Pricing"
 // import Login from "./pages/Login"
 // import AppLayout from "./pages/AppLayout"
@@ -21,7 +21,7 @@ import SpinnerFullPage from "./components/SpinnerFullPage"
 
 const Homepage = lazy(()=> import("./pages/Homepage"))
 const Product = lazy(()=> import("./pages/Product"))
-const PageNotfound = lazy(()=> import("./pages/PageNotfound"))
+const PageNotFound = lazy(()=> import("./pages/PageNotFound"))
 const Pricing = lazy(()=> import("./pages/Pricing"))
 const Login = lazy(()=> import("./pages/Login"))
 const AppLayout = lazy(()=> import("./pages/AppLayout"))
@@ -35,7 +35,7 @@ function App() {
    <Suspense fallback={<SpinnerFullPage/>}>
    <Routes>
     <Route index element={<Homepage />}/>
-    <Route path="*" element={<PageNotfound/>}/>
+    <Route path="*" element={<PageNotFound/>}/>
     <Route path="/product" element={<Product/>}/>
     <Route path="/pricing" element={<Pricing/>}/>
     <Route path="/login" element={<Login/>}/>
