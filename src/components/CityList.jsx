@@ -5,7 +5,6 @@ import { useCities } from '../contexts/CitiesContext';
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
-    // day: "numeric",
     month: "long",
     year: "numeric",
     weekday: "long",
